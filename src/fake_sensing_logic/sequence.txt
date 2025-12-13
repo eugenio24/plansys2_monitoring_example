@@ -1,0 +1,12 @@
+robot_at leia entrance false
+robot_at leia chargingroom true
+battery_low leia false
+battery_full leia true
+robot_at leia chargingroom false
+robot_at leia kitchen true
+robot_at leia kitchen false
+robot_at leia dinning true
+robot_at leia dinning false
+robot_at leia bedroom true
+robot_at leia bedroom false
+robot_at leia bathroom true

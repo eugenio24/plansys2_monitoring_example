@@ -1,0 +1,24 @@
+<library path="plansys2_sensing_plugins">
+
+  <!-- RobotAt sensing plugin -->
+  <class
+    type="plansys2_sensing_plugins::RobotAtPredicateSensor"
+    base_class_type="plansys2::PredicateSensingBase">
+    <description>RobotAt Sensing plugin.</description>
+  </class>
+
+  <!-- BatteryFull sensing plugin -->
+  <class
+    type="plansys2_sensing_plugins::BatteryFullPredicateSensor"
+    base_class_type="plansys2::PredicateSensingBase">
+    <description>BatteryFull Sensing plugin.</description>
+  </class>
+
+  <!-- BatteryLow sensing plugin -->
+  <class
+    type="plansys2_sensing_plugins::BatteryLowPredicateSensor"
+    base_class_type="plansys2::PredicateSensingBase">
+    <description>BatteryLow Sensing plugin.</description>
+</class>
+
+</library>
