@@ -147,20 +147,49 @@ For more information about how `pluginlib` works see the official ROS 2 document
 
 ---
 
-## Fake Sensing Example
+## Fake Sensing Demo
 
-This package also includes a `FakeSensingSequences` class, located in:
+This package includes also a **demo-only** class, `FakeSensingSequences`, located in: `src/fake_sensing_logic/`. It is provided purely for demo/testing purposes. It is **not required** for the actual sensing plugin integration.
 
+It simulates sensing results using a predefined sequence, configurable via a YAML file: `src/fake_sensing_logic/fake_sensing_config.yaml`
+
+Example configuration:
+
+```yaml
+sequence_file: "/plansys2_dev/plansys2_ws/src/plansys2_monitoring_example/src/fake_sensing_logic/util/sequence.txt"
+
+random_failure:
+  enabled: true
+  probability: 0.15
+  seed: 1
+
+loop_sequence: false
 ```
-src/fake_sensing_logic/
+
+* Each sensing query consumes the next value in the sequence and returns the corresponding boolean.
+* Random failures can be enabled using `random_failure`, with a reproducible `seed`.
+* `loop_sequence` controls whether the sequence restarts when it reaches the end.
+* Execution is deterministic and reproducible. This allows testing and demonstrating monitoring behavior **without real sensors**.
+
+### Generating the Sequence File
+
+The sequence file (`sequence.txt`) can be automatically generated from a **PDDL domain** and a **plan file** using the provided Python script: `src/fake_sensing_logic/util/generate_sequence.py`
+
+This small utility is not a complete PDDL parser but is intended to facilitate debugging and testing. It generates a simple, flat list of effects to be sensed.
+
+
+Usage:
+```bash
+python generate_sequence.py domain.pddl plan.txt sequence.txt
 ```
 
-It **simulates sensing results** using a predefined sequence stored in:
+* **domain.pddl**, the PDDL domain file defining actions and effects. Example: `/pddl/simple_example.pddl`.
+* **plan.txt**, a plan file containing the output of the plan that will be executed (`get plan` command in `plansys2_terminal`). Example: `/src/fake_sensing_logic/util/plan.txt`.
+* **sequence.txt**, the generated sequence file to be used by `FakeSensingSequences`.
 
+The generated sequence file will look like:
 ```
-src/fake_sensing_logic/sequence.txt
+predicate arg1 arg2 ... true|false
 ```
 
-Each sensing query consumes the next value in the sequence and returns the corresponding boolean result. This allows deterministic and reproducible execution runs, making it easier to demonstrate and test the monitoring behavior without relying on real perception.
-
----
+This allows `FakeSensingSequences` to **replay the expected effects deterministically**, optionally with random failures.

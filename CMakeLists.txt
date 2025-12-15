@@ -11,12 +11,17 @@ find_package(plansys2_msgs REQUIRED)
 find_package(plansys2_executor REQUIRED)
 find_package(pluginlib REQUIRED)
 
+# Demo-only: FakeSensingSequences YAML support
+# This is not required for the real sensing plugin integration.
+# Only needed by the demo fakesensing class.
+find_package(yaml-cpp REQUIRED)
+
 set(CMAKE_CXX_STANDARD 17)
 
 set(dependencies
-    rclcpp
-    plansys2_msgs
-    plansys2_executor
+  rclcpp
+  plansys2_msgs
+  plansys2_executor
 )
 
 add_executable(move_action_node src/move_action_node.cpp)
@@ -46,6 +51,11 @@ ament_target_dependencies(plansys2_sensing_plugins
   rclcpp
   plansys2_executor
   pluginlib
+)
+
+# Link yaml-cpp only for FakeSensingSequences demo
+target_link_libraries(plansys2_sensing_plugins
+  yaml-cpp
 )
 
 pluginlib_export_plugin_description_file(plansys2_executor plansys2_monitoring_example_sensing_plugins.xml)

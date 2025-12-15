@@ -1,0 +1,8 @@
+sequence_file: "/plansys2_dev/plansys2_ws/src/plansys2_monitoring_example/src/fake_sensing_logic/util/sequence.txt"
+
+random_failure:
+  enabled: true
+  probability: 0.15
+  seed: 1
+
+loop_sequence: false
