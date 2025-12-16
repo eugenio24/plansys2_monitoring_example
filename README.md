@@ -8,8 +8,8 @@ The package contains **predicate sensing plugins** examples that are loaded by P
 
 The goal of this package is not to provide realistic sensing, but to demonstrate **how sensing plugins are integrated into PlanSys2** and can be used for monitoring.
 
-The **PlanSys2 monitoring extension itself** is implemented in a fork of the official repository, in the `jazzy-devel` branch:
-- https://github.com/eugenio24/ros2_planning_system/tree/jazzy-devel
+The **PlanSys2 monitoring extension itself** is implemented in a fork of the official repository, in the `effect-monitoring` branch:
+- https://github.com/eugenio24/ros2_planning_system/tree/effect-monitoring
 
 ---
 
