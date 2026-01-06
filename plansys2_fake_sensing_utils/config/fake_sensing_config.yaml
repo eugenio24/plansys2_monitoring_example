@@ -1,0 +1,9 @@
+predicates_sequence_file: /plansys2_dev/plansys2_ws/src/plansys2_monitoring_example/plansys2_fake_sensing_utils/util/simple-domain/predicates-sequence.txt
+functions_sequence_file: null
+
+random_failure:
+  enabled: false
+  probability: 0.15
+  seed: 1
+
+loop_sequence: false

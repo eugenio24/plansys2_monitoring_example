@@ -1,0 +1,8 @@
+0.000: (move herbie wp0 wp1)  [121.951]
+121.952: (visit herbie wp1)  [1.000]
+122.952: (move herbie wp1 rp0)  [121.951]
+244.904: (refuel herbie rp0)  [6.667]
+251.572: (move herbie rp0 wp3)  [154.236]
+405.809: (visit herbie wp3)  [1.000]
+406.809: (move herbie wp3 wp2)  [121.978]
+528.786: (visit herbie wp2)  [1.000]

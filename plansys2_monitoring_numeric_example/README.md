@@ -1,0 +1,1 @@
+# plansys2_monitoring_numeric_example

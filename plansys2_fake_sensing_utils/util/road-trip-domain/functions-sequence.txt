@@ -1,0 +1,5 @@
+fuel_level herbie 0.6666666670274533
+fuel_level herbie 0.33333333397725323
+fuel_level herbie 1.0
+fuel_level herbie 0.5784204637121466
+fuel_level herbie 0.2450144409537066

@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>plansys2_monitoring_example</name>
-  <version>0.0.4</version>
+  <name>plansys2_monitoring_numeric_example</name>
+  <version>0.0.1</version>
 
-  <description>A simple example for the monitoring component of ROS2 Planning System</description>
+  <description>An example demonstrating the monitoring component of the ROS2 Planning System with numeric fluents</description>
 
   <maintainer email="eugenio.ferrari-1@studenti.unitn.it">Ferrari Eugenio</maintainer>
 
@@ -15,6 +15,7 @@
   <depend>rclcpp</depend>
   <depend>plansys2_msgs</depend>
   <depend>plansys2_executor</depend>
+  <depend>plansys2_fake_sensing_utils</depend>
 
   <exec_depend>plansys2_bringup</exec_depend>
   <exec_depend>plansys2_terminal</exec_depend>

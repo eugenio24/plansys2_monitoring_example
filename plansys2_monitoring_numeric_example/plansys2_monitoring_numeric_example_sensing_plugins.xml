@@ -1,0 +1,24 @@
+<library path="plansys2_sensing_plugins">
+
+  <!-- CarAt sensing plugin -->
+  <class
+    type="plansys2_sensing_plugins::CarAtPredicateSensor"
+    base_class_type="plansys2::PredicateSensingBase">
+    <description>CarAt Sensing plugin.</description>
+  </class>
+
+  <!-- Visited sensing plugin -->
+  <class
+    type="plansys2_sensing_plugins::VisitedPredicateSensor"
+    base_class_type="plansys2::PredicateSensingBase">
+    <description>Visited Sensing plugin.</description>
+  </class>
+
+  <!-- FuelLevel sensing plugin -->
+  <class
+    type="plansys2_sensing_plugins::FuelLevelFunctionSensor"
+    base_class_type="plansys2::FunctionSensingBase">
+    <description>FuelLevel Sensing plugin.</description>
+  </class>
+
+</library>

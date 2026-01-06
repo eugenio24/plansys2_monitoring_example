@@ -1,0 +1,11 @@
+car_at herbie wp0 false
+car_at herbie wp1 true
+visited wp1 true
+car_at herbie wp1 false
+car_at herbie rp0 true
+car_at herbie rp0 false
+car_at herbie wp3 true
+visited wp3 true
+car_at herbie wp3 false
+car_at herbie wp2 true
+visited wp2 true

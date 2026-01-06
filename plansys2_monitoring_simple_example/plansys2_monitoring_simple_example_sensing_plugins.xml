@@ -19,6 +19,6 @@
     type="plansys2_sensing_plugins::BatteryLowPredicateSensor"
     base_class_type="plansys2::PredicateSensingBase">
     <description>BatteryLow Sensing plugin.</description>
-</class>
+  </class>
 
 </library>

@@ -1,0 +1,82 @@
+set instance herbie car
+set instance wp0 waypoint
+set instance wp1 waypoint
+set instance wp2 waypoint
+set instance wp3 waypoint
+set instance rp0 waypoint
+set instance rp1 waypoint
+
+set predicate (connected wp0 wp1)
+set predicate (connected wp0 wp2)
+set predicate (connected wp0 wp3)
+set predicate (connected wp0 rp0)
+set predicate (connected wp0 rp1)
+set predicate (connected wp1 wp0)
+set predicate (connected wp1 wp2)
+set predicate (connected wp1 wp3)
+set predicate (connected wp1 rp0)
+set predicate (connected wp1 rp1)
+set predicate (connected wp2 wp0)
+set predicate (connected wp2 wp1)
+set predicate (connected wp2 wp3)
+set predicate (connected wp2 rp0)
+set predicate (connected wp2 rp1)
+set predicate (connected wp3 wp0)
+set predicate (connected wp3 wp1)
+set predicate (connected wp3 wp2)
+set predicate (connected wp3 rp0)
+set predicate (connected wp3 rp1)
+set predicate (connected rp0 wp0)
+set predicate (connected rp0 wp1)
+set predicate (connected rp0 wp2)
+set predicate (connected rp0 wp3)
+set predicate (connected rp0 rp1)
+set predicate (connected rp1 wp0)
+set predicate (connected rp1 wp1)
+set predicate (connected rp1 wp2)
+set predicate (connected rp1 wp3)
+set predicate (connected rp1 rp0)
+
+set predicate (fuel_at rp0)
+set predicate (fuel_at rp1)
+
+set predicate (car_at herbie wp0)
+
+set function (distance wp0 wp1) 2499.9999972941
+set function (distance wp0 wp2) 7159.1009391113
+set function (distance wp0 wp3) 4999.9999985359
+set function (distance wp0 rp0) 2236.4744353722
+set function (distance wp0 rp1) 7071.3891323160
+set function (distance wp1 wp0) 2499.9999972941
+set function (distance wp1 wp2) 5000.0000061686
+set function (distance wp1 wp3) 3354.1019013976
+set function (distance wp1 rp0) 2499.9999978765
+set function (distance wp1 rp1) 5590.1698305375
+set function (distance wp2 wp0) 7159.1009391113
+set function (distance wp2 wp1) 5000.0000061686
+set function (distance wp2 wp3) 2500.5451706883
+set function (distance wp2 rp0) 5590.1698350380
+set function (distance wp2 rp1) 2499.9992321988
+set function (distance wp3 wp0) 4999.9999985359
+set function (distance wp3 wp1) 3354.1019013976
+set function (distance wp3 wp2) 2500.5451706883
+set function (distance wp3 rp0) 3161.8465221589
+set function (distance wp3 rp1) 2236.0680677436
+set function (distance rp0 wp0) 2236.4744353722
+set function (distance rp0 wp1) 2499.9999978765
+set function (distance rp0 wp2) 5590.1698350380
+set function (distance rp0 wp3) 3161.8465221589
+set function (distance rp0 rp1) 5000.0000022168
+set function (distance rp1 wp0) 7071.3891323160
+set function (distance rp1 wp1) 5590.1698305375
+set function (distance rp1 wp2) 2499.9992321988
+set function (distance rp1 wp3) 2236.0680677436
+set function (distance rp1 rp0) 5000.0000022168
+
+set function (fuel_level herbie) 1.0
+set function (min_fuel_level herbie) 0.1
+set function (range herbie) 7500.0
+set function (fuel_rate herbie) 0.1
+set function (speed herbie) 20.5
+
+set goal (and (visited wp1) (visited wp2) (visited wp3))
