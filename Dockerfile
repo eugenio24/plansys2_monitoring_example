@@ -43,4 +43,7 @@ RUN /bin/bash -c "source /opt/ros/${ROS_DISTRO}/setup.bash && \
 
 RUN echo "source ~/plansys2_ws/install/setup.bash" >> ~/.bashrc
 
+ENV RCUTILS_COLORIZED_OUTPUT=1
+ENV TERM=xterm-256color
+
 WORKDIR /home/${USERNAME}
