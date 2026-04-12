@@ -11,20 +11,51 @@ For an overview of how the monitoring is achieved, see the section [Monitoring A
 
 ## Table of Contents
 1. [Example Packages](#example-packages)
-2. [Sensing Plugins Overview](#sensing-plugins-overview)
-3. [Enabling Monitoring in PlanSys2](#enabling-monitoring-in-plansys2)
-4. [Registering Sensing Plugins](#registering-sensing-plugins-with-plansys2)
-5. [Monitoring Architecture Overview](#monitoring-architecture-overview)
-6. [Fake Sensing Utility](#fake-sensing-utility)
+2. [Running the Examples](#running-the-examples)
+3. [Sensing Plugins Overview](#sensing-plugins-overview)
+4. [Enabling Monitoring in PlanSys2](#enabling-monitoring-in-plansys2)
+5. [Registering Sensing Plugins](#registering-sensing-plugins-with-plansys2)
+6. [Monitoring Architecture Overview](#monitoring-architecture-overview)
+7. [Fake Sensing Utility](#fake-sensing-utility)
 
 ---
 
-### Example Packages
+## Example Packages
 - `plansys2_monitoring_simple_example`: A simple example based on the [PlanSys2 Simple Example](https://github.com/PlanSys2/ros2_planning_system_examples/tree/rolling/plansys2_simple_example)
 
 - `plansys2_monitoring_numeric_example`: An example that also includes numeric fluents and numeric expressions in the effects.
 
 The goal of these examples is not to provide realistic sensing, but to demonstrate **how sensing plugins are integrated into PlanSys2** and can be used for monitoring.
+
+---
+
+## Running the Examples
+
+To just  run the examples without setting up a local ROS 2 environment, a Docker image is provided. It clones and builds everything automatically.
+
+Clone this repository and run the provided script to build the Docker image and start the container:
+```bash
+git clone https://github.com/eugenio24/plansys2_monitoring_example.git
+cd plansys2_monitoring_example
+bash launch_docker.sh
+```
+
+Then attach terminals to the container:
+```bash
+docker exec -it plansys2-monitoring bash
+```
+
+The workspace is already built and sourced. To run an example, in one terminal launch the example:
+```bash
+ros2 launch plansys2_monitoring_simple_example plansys2_monitoring_simple_example_launch.py
+```
+
+And in another interact with it via the PlanSys2 terminal:
+```bash
+ros2 run plansys2_terminal plansys2_terminal
+```
+
+Edit `plansys2_fake_sensing_utils/config/fake_sensing_config.yaml` depending on which example you are running.
 
 ---
 
@@ -172,7 +203,7 @@ Change `plansys2::PredicateSensingBase` with `plansys2::FunctionSensingBase` for
 ---
 
 For more information on how `pluginlib` works see the official ROS 2 documentation:
-> [https://docs.ros.org/en/foxy/Tutorials/Beginner-Client-Libraries/Pluginlib.html](https://docs.ros.org/en/foxy/Tutorials/Beginner-Client-Libraries/Pluginlib.html)
+> [https://docs.ros.org/en/jazzy/Tutorials/Beginner-Client-Libraries/Pluginlib.html](https://docs.ros.org/en/jazzy/Tutorials/Beginner-Client-Libraries/Pluginlib.html)
 
 ---
 
@@ -361,7 +392,8 @@ It simulates sensing results using predefined sequences, configurable via a YAML
 Example configuration:
 
 ```yaml
-predicates_sequence_file: /plansys2_dev/plansys2_ws/src/plansys2_monitoring_example/plansys2_fake_sensing_utils/util/simple-domain/predicates-sequence.txt
+# relative path wrt to ros package "plansys2_fake_sensing_utils"
+predicates_sequence_file: util/simple-domain/predicates-sequence.txt 
 functions_sequence_file: null
 
 random_failure:

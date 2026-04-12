@@ -33,15 +33,18 @@ bool FakeSensingSequences::loadConfig(const std::string & config_file)
   try {
     YAML::Node cfg = YAML::LoadFile(config_file);
 
+    const std::string share_dir =
+      ament_index_cpp::get_package_share_directory("plansys2_fake_sensing_utils");
+
     if (cfg["predicates_sequence_file"] && !cfg["predicates_sequence_file"].IsNull()) {
       config_.predicates_sequence_file =
-        cfg["predicates_sequence_file"].as<std::string>();
+        share_dir + "/" + cfg["predicates_sequence_file"].as<std::string>();
       loadPredicateSequence(*config_.predicates_sequence_file);
     }
 
     if (cfg["functions_sequence_file"] && !cfg["functions_sequence_file"].IsNull()) {
       config_.functions_sequence_file =
-        cfg["functions_sequence_file"].as<std::string>();
+        share_dir + "/" + cfg["functions_sequence_file"].as<std::string>();
       loadFunctionSequence(*config_.functions_sequence_file);
     }
 
