@@ -26,7 +26,7 @@ class Visit : public plansys2::ActionExecutorClient
 {
 public:
   Visit()
-  : plansys2::ActionExecutorClient("visit", 1s)
+  : plansys2::ActionExecutorClient("visit", 100ms)
   {
     progress_ = 0.0;
   }
@@ -35,7 +35,7 @@ private:
   void do_work()
   {
     if (progress_ < 1.0) {
-      progress_ += 0.05;
+      progress_ += 0.1;  // 10 ticks × 100ms = 1 second total action duration
       send_feedback(progress_, "Visit running");
     } else {
       finish(true, 1.0, "Visit completed");
